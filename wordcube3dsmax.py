@@ -1,5 +1,6 @@
 """
-Run via:  Scripting > Run Script
+Run via: Scripting > Run Script
+Warning: It will reset the file, erasing any existing assets, before generating the model anew.
 """
 
 # TODO Figure out bolding (use TextPlus?).
@@ -23,6 +24,7 @@ WORD_ARRAYS = [
     ["PRESTO", "RUSHES", "ESCORT", "SHOVEL", "TERETE", "OSTLER"],
 ]
 
+
 # ── Visual settings ───────────────────────────────────────────────────────────
 
 # 3ds Max scene units are typically inches or cm; adjust as needed.
@@ -45,7 +47,6 @@ LAYER_SPACING   = 30.0   # Z offset per layer
 
 def clear_generated_layers():
     rt.resetMaxFile(rt.name('noPrompt'))
-
 
 def make_letter_object(char: str, name: str, extrude: float) -> object:
     """
@@ -79,7 +80,6 @@ def make_letter_object(char: str, name: str, extrude: float) -> object:
         rt.resetXForm(txt)
 
     return txt
-
 
 def explode_words(word_arrays=None):
     clear_generated_layers()
